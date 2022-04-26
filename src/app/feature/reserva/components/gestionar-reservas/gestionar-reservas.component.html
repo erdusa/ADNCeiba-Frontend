@@ -1,0 +1,16 @@
+<form class="example-container" [formGroup]="formConsultaCliente" #frmConsultaCliente="ngForm" (ngSubmit)="consultar()">
+  <mat-card class="contenedor-card">
+    <mat-card-title>Gestionar Reservas</mat-card-title>
+
+    <mat-card-content>
+
+      <mat-form-field appearance="fill">
+        <mat-label>No. Documento</mat-label>
+        <input validar type="text" matInput formControlName="numeroDocumento" id="numeroDocumento" required />
+      </mat-form-field>
+      <br>
+      <label id="example-radio-group-label">Tipo Vehiculo</label>
+      <br>
+    </mat-card-content>
+  </mat-card>
+</form>
