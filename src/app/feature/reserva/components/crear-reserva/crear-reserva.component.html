@@ -1,0 +1,95 @@
+<form class="example-container" [formGroup]="formBuscarCarros" #frmConsultaCliente="ngForm">
+  <mat-card class="contenedor-card">
+    <mat-card-title>Carros Disponibles</mat-card-title>
+
+    <mat-card-content>
+
+      <mat-form-field>
+        <mat-label>Fecha</mat-label>
+
+        <input matInput [matDatepicker]="fecha" placeholder="Seleccione la fecha" [min]="fechaManiana"
+          formControlName="fecha" id="fecha" />
+        <mat-datepicker-toggle matSuffix [for]="fecha"></mat-datepicker-toggle>
+        <mat-datepicker #fecha></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="tiempo">
+        <mat-label>Horas</mat-label>
+        <input matInput type="number" formControlName="hora" [min]="HORA_MINIMA" id="hora" [max]="HORA_MAXIMA">
+      </mat-form-field>
+
+
+      <mat-form-field class="tiempo">
+        <mat-label>Minutos</mat-label>
+        <input matInput type="number" formControlName="minuto" id="minuto" [min]="MINUTOS_MINIMOS" [max]="MINUTOS_MAXIMOS">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>No. días</mat-label>
+        <input type="number" matInput formControlName="dias" id="dias"  [min]="1"/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Gama</mat-label>
+        <mat-select formControlName="gama" id="gama">
+          <mat-option value="ALTA">ALTA</mat-option>
+          <mat-option value="MEDIA">MEDIA</mat-option>
+          <mat-option value="BAJA">BAJA</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-icon-button aria-label="buscar" (click)="buscar()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-card-content>
+  </mat-card>
+</form>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 contenedor" matSort>
+
+  <caption class="mat-elevation-z8">Reservas Vigentes</caption>
+
+  <ng-container matColumnDef="fechaInicial">
+    <th mat-header-cell *matHeaderCellDef id="fechaInicial"> Fecha Inicial </th>
+    <td mat-cell *matCellDef="let element"> {{element.fechaInicial}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="fechaFinal">
+    <th mat-header-cell *matHeaderCellDef id="fechaFinal"> Fecha Final </th>
+    <td mat-cell *matCellDef="let element"> {{element.fechaFinal}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="marca">
+    <th mat-header-cell *matHeaderCellDef id="marca"> Marca </th>
+    <td mat-cell *matCellDef="let element"> {{element.marca}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="modelo">
+    <th mat-header-cell *matHeaderCellDef id="modelo"> Modelo </th>
+    <td mat-cell *matCellDef="let element"> {{element.modelo}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="valor">
+    <th mat-header-cell *matHeaderCellDef id="valor"> Valor </th>
+    <td mat-cell *matCellDef="let element"> {{element.valor | currency}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="reservar">
+    <th mat-header-cell *matHeaderCellDef id="reservar"></th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-button color="primary" (click)="reservar(element.idCarro)" id="reservar">
+        <mat-icon>add</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+</table>
+
+<button mat-button mat-raised-button color="primary" (click)="cerrar()" id="cerrar">
+  <mat-icon>close</mat-icon>
+  Cancelar
+</button>

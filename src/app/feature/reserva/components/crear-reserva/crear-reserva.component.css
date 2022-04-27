@@ -1,3 +1,8 @@
+.mat-form-field {
+  font-size: 14px;
+  width: 20%;
+}
+
 .contenedor {
   width: 95%;
   margin-left: auto;
@@ -18,4 +23,9 @@ caption {
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: large;
+}
+
+.tiempo {
+  margin-left: 2px;
+  width: 5em;
 }

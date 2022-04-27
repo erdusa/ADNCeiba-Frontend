@@ -1,14 +1,14 @@
 export class ReservaVigente {
-  idReserva: Number;
-  fechaInicial: String;
-  fechaFinal: String;
-  marca: String;
-  modelo: Number;
-  placa: String;
-  gama: String;
-  valor: Number;
+  idReserva: number;
+  fechaInicial: string;
+  fechaFinal: string;
+  marca: string;
+  modelo: number;
+  placa: string;
+  gama: string;
+  valor: number;
 
-  constructor(idReserva: Number,fechaInicial: String,fechaFinal: String,marca: String,modelo: Number,placa: String,gama: String,valor: Number) {
+  constructor(idReserva: number, fechaInicial: string, fechaFinal: string, marca: string, modelo: number, placa: string, gama: string, valor: number) {
     this.idReserva = idReserva;
     this.fechaInicial = fechaInicial;
     this.fechaFinal = fechaFinal;

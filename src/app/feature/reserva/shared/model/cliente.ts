@@ -1,9 +1,9 @@
 export class Cliente {
-  id: Number;
-  documento: String;
-  nombre: String;
+  id: number;
+  documento: string;
+  nombre: string;
 
-  constructor(id: Number, documento: String, nombre: String) {
+  constructor(id: number, documento: string, nombre: string) {
     this.id = id;
     this.documento = documento;
     this.nombre = nombre;

@@ -1,11 +1,11 @@
 export class SolicitudReserva {
 
-  idCliente: Number;
-  idCarro: Number;
-  fechaInicial: String;
-  dias: Number;
+  idCliente: number;
+  idCarro: number;
+  fechaInicial: string;
+  dias: number;
 
-  constructor(idCliente: Number, idCarro: Number, fechaInicial: String, dias: Number) {
+  constructor(idCliente: number, idCarro: number, fechaInicial: string, dias: number) {
     this.idCliente = idCliente;
     this.idCarro = idCarro;
     this.fechaInicial = fechaInicial;

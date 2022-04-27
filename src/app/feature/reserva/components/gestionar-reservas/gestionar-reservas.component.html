@@ -1,16 +1,77 @@
-<form class="example-container" [formGroup]="formConsultaCliente" #frmConsultaCliente="ngForm" (ngSubmit)="consultar()">
+<form class="example-container" [formGroup]="formConsultaCliente" #frmConsultaCliente="ngForm">
   <mat-card class="contenedor-card">
     <mat-card-title>Gestionar Reservas</mat-card-title>
 
     <mat-card-content>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>No. Documento</mat-label>
-        <input validar type="text" matInput formControlName="numeroDocumento" id="numeroDocumento" required />
+        <input type="number" matInput formControlName="numeroDocumento" id="numeroDocumento"/>
       </mat-form-field>
-      <br>
-      <label id="example-radio-group-label">Tipo Vehiculo</label>
-      <br>
+      <button mat-icon-button aria-label="buscar" (click)="buscarCliente()">
+        <mat-icon>search</mat-icon>
+      </button>
+      <mat-label>{{nombreCliente}}</mat-label>
     </mat-card-content>
   </mat-card>
 </form>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 contenedor" matSort>
+
+  <caption class="mat-elevation-z8">Reservas Vigentes</caption>
+
+  <ng-container matColumnDef="idReserva">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear id="no"> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.idReserva}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="fechaInicial">
+    <th mat-header-cell *matHeaderCellDef id="fechaInicial"> Fecha Inicial </th>
+    <td mat-cell *matCellDef="let element"> {{element.fechaInicial}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="fechaFinal">
+    <th mat-header-cell *matHeaderCellDef id="fechaFinal"> Fecha Final </th>
+    <td mat-cell *matCellDef="let element"> {{element.fechaFinal}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="marca">
+    <th mat-header-cell *matHeaderCellDef id="marca"> Marca </th>
+    <td mat-cell *matCellDef="let element"> {{element.marca}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="modelo">
+    <th mat-header-cell *matHeaderCellDef id="modelo"> Modelo </th>
+    <td mat-cell *matCellDef="let element"> {{element.modelo}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="placa">
+    <th mat-header-cell *matHeaderCellDef id="placa"> Placa </th>
+    <td mat-cell *matCellDef="let element"> {{element.placa}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="gama">
+    <th mat-header-cell *matHeaderCellDef id="gama"> Gama </th>
+    <td mat-cell *matCellDef="let element"> {{element.gama}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="valor">
+    <th mat-header-cell *matHeaderCellDef id="valor"> Valor </th>
+    <td mat-cell *matCellDef="let element"> {{element.valor | currency}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="cancelar">
+    <th mat-header-cell *matHeaderCellDef id="cancelar"></th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-button color="primary" (click)="cancelar(element.idReserva)" id="cancelar">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+</table>
+<button mat-button mat-raised-button color="primary" (click)="agregar()" id="agregar">Agregar</button>

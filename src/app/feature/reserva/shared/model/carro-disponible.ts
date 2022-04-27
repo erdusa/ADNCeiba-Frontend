@@ -1,12 +1,16 @@
 export class CarroDisponible {
 
-  idCarro: Number;
-  marca: String;
-  modelo: Number;
-  placa: String;
-  valor: Number;
+  fechaInicial: string;
+  fechaFinal: string;
+  idCarro: number;
+  marca: string;
+  modelo: number;
+  placa: string;
+  valor: number;
 
-  constructor(idCarro: Number, marca: String, modelo: Number, placa: String, valor: Number) {
+  constructor(fechaInicial: string, fechaFinal: string, idCarro: number, marca: string, modelo: number, placa: string, valor: number) {
+    this.fechaInicial = fechaInicial;
+    this.fechaFinal = fechaFinal;
     this.idCarro = idCarro;
     this.marca = marca;
     this.modelo = modelo;
