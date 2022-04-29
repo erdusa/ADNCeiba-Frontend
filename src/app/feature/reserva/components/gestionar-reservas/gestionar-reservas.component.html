@@ -8,10 +8,10 @@
         <mat-label>No. Documento</mat-label>
         <input type="number" matInput formControlName="numeroDocumento" id="numeroDocumento"/>
       </mat-form-field>
-      <button mat-icon-button aria-label="buscar" (click)="buscarCliente()">
+      <button mat-icon-button aria-label="buscar" id="botonBuscar" (click)="buscarCliente()">
         <mat-icon>search</mat-icon>
       </button>
-      <mat-label>{{nombreCliente}}</mat-label>
+      <mat-label id="nombreCliente">{{nombreCliente}}</mat-label>
     </mat-card-content>
   </mat-card>
 </form>
@@ -74,4 +74,4 @@
 
 
 </table>
-<button mat-button mat-raised-button color="primary" (click)="agregar()" id="agregar">Agregar</button>
+<button mat-button mat-raised-button color="primary" (click)="agregar()" id="botonAgregar">Agregar</button>

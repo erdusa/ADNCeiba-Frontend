@@ -34,8 +34,7 @@ export class ReservaService {
     );
   }
 
-  public listarCarrosDisponibles(fechaInicial: string, dias: number, gama: string
-  ) {
+  public listarCarrosDisponibles(fechaInicial: string, dias: number, gama: string) {
     return this.http.doGet<CarroDisponible[]>(
       `${environment.endpoint}/reservas/carros-disponibles?fechaInicial=${fechaInicial}&dias=${dias}&gama=${gama}`,
       this.http.optsName("listar carros disponibles")
@@ -43,7 +42,6 @@ export class ReservaService {
   }
 
   public registrarReserva(solicitudReserva: SolicitudReserva) {
-    console.log(solicitudReserva)
     return this.http.doPost<SolicitudReserva, number>(
       `${environment.endpoint}/reservas`, solicitudReserva,
       this.http.optsName("reservar carro")

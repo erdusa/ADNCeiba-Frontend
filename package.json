@@ -25,6 +25,7 @@
     "@angular/router": "~11.2.8",
     "karma-sonarqube-reporter": "^1.4.0",
     "ngx-cookie-service": "^11.0.2",
+    "protractor-http-mock": "^0.10.0",
     "rxjs": "~6.6.7",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"

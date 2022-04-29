@@ -19,7 +19,7 @@ const NUMERO_DE_HORAS_MAXIMAS = 23;
 const NUMERO_DE_MINUTOS_MAXIMOS = 59;
 
 
-const REGISTRO_EXITOSO = "Se registró existosamente";
+const REGISTRO_EXITOSO = "Se registró existosamente con número: ";
 @Component({
   selector: 'app-crear-reserva',
   templateUrl: './crear-reserva.component.html',
@@ -86,9 +86,8 @@ export class CrearReservaComponent implements OnInit {
     let dias = this.formBuscarCarros.value.dias;
     let solicitudReserva = new SolicitudReserva(this.idCliente, idCarro, fecha, dias);
     this.reservaService.registrarReserva(solicitudReserva).subscribe({
-      next: data => {
-        this.reservaService.setMensajeCambio(REGISTRO_EXITOSO)
-        console.log(data)
+      next: idReserva => {
+        this.reservaService.setMensajeCambio(REGISTRO_EXITOSO + idReserva);
       },
       error: (err: ErrorPeticion) => {
         this.mostrarMensaje(err.error.mensaje);

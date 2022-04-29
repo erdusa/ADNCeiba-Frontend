@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MenuItem } from '@core/modelo/menu-item';
 
 
 @Component({
@@ -9,11 +8,4 @@ import { MenuItem } from '@core/modelo/menu-item';
 })
 export class AppComponent {
   title = 'Rent-A-Car';
-  public opciones: MenuItem[] = [
-    { url: '/home', nombre: 'home' },
-    { url: '/reservas', nombre: 'reserva' }
-
-  ];
-
-
 }

@@ -66,7 +66,7 @@ export class GestionarReservasComponent implements OnInit {
     }
   }
 
-  private listarReservasVigentes() {
+  listarReservasVigentes() {
     this.reservaService.listarReservasVigentes(this.idCliente).subscribe({
       next: data => {
         if (data.length == 0) {
