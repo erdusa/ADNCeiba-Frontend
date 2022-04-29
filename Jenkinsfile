@@ -23,7 +23,7 @@ pipeline {
                     submoduleCfg: [],
                     userRemoteConfigs: [[
                         credentialsId: 'GitHub_Erdusa',
-                        url:'https://github.com:erdusa/frontend-rent-a-car.git'
+                        url:'https://github.com/erdusa/frontend-rent-a-car.git'
                     ]]
                 ])
             }
