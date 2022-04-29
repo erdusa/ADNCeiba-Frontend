@@ -22,7 +22,7 @@ pipeline {
                     gitTool: 'Default',
                     submoduleCfg: [],
                     userRemoteConfigs: [[
-                        credentialsId: 'GitHub_erdusa',
+                        credentialsId: 'GitHub_Erdusa',
                         url:'https://github.com:erdusa/frontend-rent-a-car.git'
                     ]]
                 ])
